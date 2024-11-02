@@ -1,0 +1,34 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: chef1
+  password: password1
+  host: localhost
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: dash_development
+  pool: 5
+  username: chef1
+  password: password1
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: dash_test
+  pool: 5
+  username: chef1
+  password: password1
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dash_production
+  pool: 5
+  username: chef1
+  password: password1
+  host: localhost

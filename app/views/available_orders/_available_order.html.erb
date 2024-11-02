@@ -1,0 +1,6 @@
+<div class="w-full p-2 bg-gray-300">
+  <p class="text-lg"> Order for <%= order.dish_name %> to be delivered at <%= order.delivery_address %> </p>
+  
+  <%= link_to "Accept this order", available_orders_path(order_id: order.id), class: "bg-blue-500 p-2 rounded-lg text-lg text-blue-100", 
+      data: { turbo_method: :post } %>
+</div>

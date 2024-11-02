@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dish_name: MyString
+  delivery_address: MyString
+  customer: one
+
+two:
+  dish_name: MyString
+  delivery_address: MyString
+  customer: two

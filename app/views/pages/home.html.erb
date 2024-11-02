@@ -1,0 +1,42 @@
+<div class="w-full min-h-[100vh] bg-amber-200 flex flex-col items-center pt-16">
+  <h1 class="font-bold text-4xl">Dashboard</h1>
+  <br/>
+  <p class="text-lg">A sample dashboard for a food delivery application built with Ruby on Rails.</p>
+  <br/>
+  <% if current_customer || current_chef %>
+    <% if current_customer %>
+      
+      <% if current_customer.active_order %>
+        <p class="text-1xl">
+          Your order '<%= current_customer.active_order.dish_name %>' to '<%= current_customer.active_order.delivery_address %>' is scheduled.
+          <br/>
+          The order status is: <%= current_customer.active_order.status %>.
+        </p>
+
+      <% else %>
+        <%= link_to "Request New Order", new_order_path, class: "bg-blue-500 text-blue-50 p-2 rounded-lg" %>
+      <% end %>
+    
+    <% else %>
+      <% if current_chef.active_order %>
+        <p class="text-2xl"> You are preparing <%= current_chef.active_order.dish_name %> to be delivered at <%= current_chef.active_order.delivery_address %> </p>
+      <% else %>
+        <%= link_to "View Available Orders", available_orders_path, class: "bg-blue-500 text-blue-50 p-2 rounded-lg" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h2 class="font-bold text-2xl">Sign up as:</h2>
+    <div class="flex items-center gap-12 mt-6">
+      <%= link_to new_customer_registration_path, class: "bg-amber-950 text-lg py-2 px-4 rounded-lg text-gray-50 w-40 text-center flex flex-col items-center justify-center" do %>
+        <%= image_tag "customer.png", alt: "Customer", class: "w-16 h-16 rounded-full mb-2" %>
+        Customer
+      <% end %>
+      <%= link_to new_chef_registration_path, class: "bg-amber-950 text-lg py-2 px-4 rounded-lg text-gray-50 w-40 text-center flex flex-col items-center justify-center" do %>
+        <%= image_tag "chef.png", alt: "Chef", class: "w-16 h-16 rounded-full mb-2" %>
+        Chef
+      <% end %>
+    </div>
+  <% end %>
+
+
+</div>
